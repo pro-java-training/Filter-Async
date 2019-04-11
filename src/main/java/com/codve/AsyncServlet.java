@@ -31,7 +31,7 @@ public class AsyncServlet extends HttpServlet {
             timeout = Integer.parseInt(timeoutString);
         }
         System.out.println("Entering AsyncServlet.doGet(), Request ID = " + id +
-                ", isAsyncSupported = " + request.isAsyncSupported());
+                ", isAsyncStarted = " + request.isAsyncStarted());
 
         String wrap = request.getParameter("wrap");
         final AsyncContext context;
