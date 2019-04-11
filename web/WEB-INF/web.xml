@@ -8,7 +8,8 @@
     <!--拦截普通请求-->
     <filter>
         <filter-name>normalFilter</filter-name>
-        <filter-class>com.codve.AsyncRequestFilter</filter-class>
+        <filter-class>com.codve.AnyRequestFilter</filter-class>
+        <async-supported>true</async-supported>
     </filter>
     <filter-mapping>
         <filter-name>normalFilter</filter-name>
@@ -19,7 +20,8 @@
     <!--拦截转发请求-->
     <filter>
         <filter-name>forwardFilter</filter-name>
-        <filter-class>com.codve.AsyncRequestFilter</filter-class>
+        <filter-class>com.codve.AnyRequestFilter</filter-class>
+        <async-supported>true</async-supported>
     </filter>
     <filter-mapping>
         <filter-name>forwardFilter</filter-name>
@@ -30,7 +32,7 @@
     <!--拦截异步请求, 必须开启async-supported-->
     <filter>
         <filter-name>asyncFilter</filter-name>
-        <filter-class>com.codve.AsyncRequestFilter</filter-class>
+        <filter-class>com.codve.AnyRequestFilter</filter-class>
         <async-supported>true</async-supported>
     </filter>
     <filter-mapping>

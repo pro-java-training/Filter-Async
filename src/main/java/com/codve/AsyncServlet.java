@@ -2,11 +2,17 @@ package com.codve;
 
 import javax.servlet.AsyncContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+@WebServlet(
+        name = "asyncServlet",
+        urlPatterns = "/async",
+        asyncSupported = true
+)
 public class AsyncServlet extends HttpServlet {
     private static volatile int ID = 1;
 
@@ -36,6 +42,7 @@ public class AsyncServlet extends HttpServlet {
         }
         context.setTimeout(timeout); // 设置异步请求超时
 
+        System.out.println("Starting asynchronous thread, Request ID = " + id + ".");
         AsyncThread thread = new AsyncThread(id, context);
         context.start(thread::doWork);
         System.out.println("Leaving AsyncServlet.doGet(), Request ID = " + id +

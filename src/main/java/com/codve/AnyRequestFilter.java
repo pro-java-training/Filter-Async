@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletResponseWrapper;
 import java.io.IOException;
 
-public class AsyncRequestFilter implements Filter {
+public class AnyRequestFilter implements Filter {
     private String name;
 
     @Override
